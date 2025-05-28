@@ -1,5 +1,5 @@
 // belongs_to form
-$(function() {
+function install() {
   $(".field-unit--belongs-to-search select").each(function initializeSelectize(index, element) {
     var $element = $(element);
     var searchFields = $element.data('search-fields') && $element.data('search-fields').split(',')
@@ -26,4 +26,10 @@ $(function() {
       },
     });
   });
-});
+};
+
+if (window.Turbo) {
+  addEventListener("turbo:load", install)
+} else {
+  $(install)
+}
